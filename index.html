@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cable Voltage Drop Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Electrical Engineering Portfolio</p>
+          <h1>Cable Voltage Drop Calculator</h1>
+        </div>
+        <div class="status-pill" id="statusPill">Ready</div>
+      </header>
+
+      <section class="workspace" aria-label="Voltage drop calculator">
+        <form class="panel input-panel" id="calculatorForm">
+          <div class="panel-heading">
+            <h2>Design Inputs</h2>
+            <button class="icon-button" type="button" id="resetButton" aria-label="Reset inputs" title="Reset inputs">
+              &#8635;
+            </button>
+          </div>
+
+          <label>
+            Circuit type
+            <select id="circuitType">
+              <option value="dc">DC two-wire</option>
+              <option value="ac">Single-phase AC</option>
+            </select>
+          </label>
+
+          <div class="field-grid">
+            <label>
+              Supply voltage (V)
+              <input id="voltage" type="number" min="1" step="1" value="24">
+            </label>
+            <label>
+              Load power (W)
+              <input id="power" type="number" min="1" step="1" value="120">
+            </label>
+          </div>
+
+          <div class="field-grid">
+            <label>
+              One-way length (m)
+              <input id="length" type="number" min="0.1" step="0.1" value="18">
+            </label>
+            <label>
+              Conductor area (mm2)
+              <input id="area" type="number" min="0.1" step="0.1" value="6">
+            </label>
+          </div>
+
+          <div class="field-grid">
+            <label>
+              Material
+              <select id="material">
+                <option value="copper">Copper</option>
+                <option value="aluminum">Aluminum</option>
+              </select>
+            </label>
+            <label>
+              Drop limit (%)
+              <input id="limit" type="number" min="0.5" step="0.5" value="3">
+            </label>
+          </div>
+        </form>
+
+        <section class="panel results-panel" aria-label="Calculation results">
+          <div class="panel-heading">
+            <h2>Results</h2>
+            <span class="mini-label" id="verdictLabel">Pass</span>
+          </div>
+
+          <div class="metric-grid">
+            <article class="metric">
+              <span>Load current</span>
+              <strong id="currentOutput">0 A</strong>
+            </article>
+            <article class="metric">
+              <span>Voltage drop</span>
+              <strong id="dropOutput">0 V</strong>
+            </article>
+            <article class="metric">
+              <span>Drop percent</span>
+              <strong id="dropPercentOutput">0%</strong>
+            </article>
+            <article class="metric">
+              <span>Cable loss</span>
+              <strong id="lossOutput">0 W</strong>
+            </article>
+          </div>
+
+          <div class="chart-wrap">
+            <canvas id="dropChart" width="760" height="320" aria-label="Voltage drop by conductor size"></canvas>
+          </div>
+        </section>
+
+        <section class="panel table-panel" aria-label="Conductor comparison">
+          <div class="panel-heading">
+            <h2>Conductor Comparison</h2>
+            <span class="mini-label">mm2</span>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Area</th>
+                  <th>Drop</th>
+                  <th>Loss</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="comparisonBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <aside class="panel notes-panel" aria-label="Engineering notes">
+          <div class="panel-heading">
+            <h2>Engineering Notes</h2>
+          </div>
+          <ul>
+            <li>Uses the full outgoing-and-return cable path for resistance.</li>
+            <li>Copper resistivity: 0.0175 ohm mm2/m at 20 degC.</li>
+            <li>Aluminum resistivity: 0.0282 ohm mm2/m at 20 degC.</li>
+            <li>Final cable selection also needs code, temperature, protection, and installation checks.</li>
+          </ul>
+        </aside>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

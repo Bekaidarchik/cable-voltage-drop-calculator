@@ -2,6 +2,12 @@
 
 A beginner-friendly electrical engineering portfolio project that estimates cable voltage drop, power loss, and efficiency for small DC and single-phase AC circuits.
 
+## Portfolio Summary
+
+- Built an interactive browser calculator for practical cable voltage-drop checks in low-voltage DC and single-phase AC estimates.
+- Used HTML, CSS, JavaScript, engineering formulas, responsive UI layout, conductor comparison tables, and canvas chart rendering.
+- Demonstrated clear design tradeoffs by calculating load current, voltage drop, cable loss, efficiency, and pass/review status against a selected drop limit.
+
 ## Why this project matters
 
 Voltage drop is a practical design check for lighting, battery systems, control circuits, and small distribution runs. This tool helps compare conductor sizes and quickly see whether a design stays inside a selected voltage-drop limit.

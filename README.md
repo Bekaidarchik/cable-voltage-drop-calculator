@@ -2,6 +2,8 @@
 
 A beginner-friendly electrical engineering portfolio project that estimates cable voltage drop, power loss, and efficiency for small DC and single-phase AC circuits.
 
+**Live demo:** https://bekaidarchik.github.io/cable-voltage-drop-calculator/
+
 ## Portfolio Summary
 
 - Built an interactive browser calculator for practical cable voltage-drop checks in low-voltage DC and single-phase AC estimates.
@@ -38,7 +40,7 @@ For single-phase AC, the calculator uses the same resistive approximation. It is
 
 ## How to Run
 
-Open `index.html` in any modern browser.
+Open `index.html` in any modern browser, or use the GitHub Pages demo above.
 
 ## Suggested Portfolio Description
 
